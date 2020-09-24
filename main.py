@@ -50,12 +50,15 @@ if __name__ == '__main__':
     print(f"Num nodes: {num_nodes}")
 
 
-    for i,edge in enumerate(edges):
+    for i, edge in enumerate(edges):
         if i ==0:
             A = torch.from_numpy(edge.todense()).type(torch.FloatTensor).unsqueeze(-1)
         else:
             A = torch.cat([A,torch.from_numpy(edge.todense()).type(torch.FloatTensor).unsqueeze(-1)], dim=-1)
     A = torch.cat([A,torch.eye(num_nodes).type(torch.FloatTensor).unsqueeze(-1)], dim=-1)
+
+    print("Number edges type matrix: ")
+    print(A.shape)
     
     node_features = torch.from_numpy(node_features).type(torch.FloatTensor)
     train_node = torch.from_numpy(np.array(labels[0])[:,0]).type(torch.LongTensor)
