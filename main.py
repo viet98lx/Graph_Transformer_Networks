@@ -52,10 +52,10 @@ if __name__ == '__main__':
     print(node_features.shape)
     print(node_features[:5])
     print("Edges shape: ")
-    print(edges.shape)
+    print(len(edges))
     print(edges[:5])
     print("Label shape: ")
-    print(labels.shape)
+    print(len(labels))
     print(labels[:5])
 
     for i,edge in enumerate(edges):
