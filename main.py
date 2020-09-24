@@ -48,6 +48,16 @@ if __name__ == '__main__':
         labels = pickle.load(f)
     num_nodes = edges[0].shape[0]
 
+    print("Node features shape: ")
+    print(node_features.shape)
+    print(node_features[:5])
+    print("Edges shape: ")
+    print(edges.shape)
+    print(edges[:5])
+    print("Label shape: ")
+    print(labels.shape)
+    print(labels[:5])
+
     for i,edge in enumerate(edges):
         if i ==0:
             A = torch.from_numpy(edge.todense()).type(torch.FloatTensor).unsqueeze(-1)
