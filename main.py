@@ -47,16 +47,8 @@ if __name__ == '__main__':
     with open('data/'+args.dataset+'/labels.pkl','rb') as f:
         labels = pickle.load(f)
     num_nodes = edges[0].shape[0]
+    print(f"Num nodes: {num_nodes}")
 
-    print("Node features shape: ")
-    print(node_features.shape)
-    print(node_features[:5])
-    print("Edges shape: ")
-    print(len(edges))
-    print(edges[:5])
-    print("Label shape: ")
-    print(len(labels))
-    print(labels[:5])
 
     for i,edge in enumerate(edges):
         if i ==0:
