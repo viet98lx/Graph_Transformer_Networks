@@ -93,6 +93,7 @@ class GCNConv(MessagePassing):
 
     def forward(self, x, edge_index, edge_weight=None):
         """"""
+        print("call gcn")
         x = torch.matmul(x, self.weight)
 
         if not self.cached or self.cached_result is None:
