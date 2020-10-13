@@ -96,7 +96,7 @@ if __name__ == '__main__':
         best_test_f1 = 0
 
         print("Model in device:")
-        print(model.device)
+        print(model.weight.device)
 
         for i in range(epochs):
             for param_group in optimizer.param_groups:
