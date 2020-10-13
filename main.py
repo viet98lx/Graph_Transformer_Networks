@@ -94,7 +94,10 @@ if __name__ == '__main__':
         best_train_f1 = 0
         best_val_f1 = 0
         best_test_f1 = 0
-        
+
+        print("Model in device:")
+        print(model.device)
+
         for i in range(epochs):
             for param_group in optimizer.param_groups:
                 if param_group['lr'] > 0.005:
