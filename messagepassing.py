@@ -61,7 +61,7 @@ class MessagePassing(torch.nn.Module):
             **kwargs: Any additional data which is needed to construct messages
                 and to update node embeddings.
         """
-
+        print("call message passing")
         size = [None, None] if size is None else list(size)
         assert len(size) == 2
 
@@ -99,8 +99,8 @@ class MessagePassing(torch.nn.Module):
 
         kwargs['edge_index'] = edge_index
         kwargs['size'] = size
-        print("Print kwargs info: ")
-        print(kwargs)
+        # print("Print kwargs info: ")
+        # print(kwargs)
         for (idx, arg) in self.__special_args__:
             if arg[-2:] in ij.keys():
                 message_args.insert(idx, kwargs[arg[:-2]][ij[arg[-2:]]])
@@ -109,10 +109,10 @@ class MessagePassing(torch.nn.Module):
 
         update_args = [kwargs[arg] for arg in self.__update_args__]
 
-        print("Message args:")
-        print(message_args)
-        print("Update args: ")
-        print(update_args)
+        # print("Message args:")
+        # print(message_args)
+        # print("Update args: ")
+        # print(update_args)
 
         out = self.message(*message_args)
         out = scatter_(self.aggr, out, edge_index[i], dim_size=size[i])
